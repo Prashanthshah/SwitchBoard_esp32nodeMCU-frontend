@@ -8,6 +8,7 @@
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.2.5",
     "@mui/material": "^5.2.7",
     "axios": "^0.22.0",
     "next": "latest",
