@@ -4,6 +4,7 @@ import Switch from "@mui/material/Switch";
 import LockIcon from "@mui/icons-material/Lock";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import {
   FormControl,
   IconButton,
@@ -64,7 +65,12 @@ const Switches = () => {
 
   return (
     <>
-      <div className="flex h-full items-center w-full justify-around">
+      <div className="flex flex-col h-full items-center w-full justify-around">
+        <div className="item-center justify-center bg-gray-200 py-4 px-4 mb-8 rounded">
+          <p className="flex item-center justify-center text-gray-900 text-2xl font-bold">
+            Smart Energy Supply System <LightbulbIcon color="secondary" />
+          </p>
+        </div>
         <div
           className={`bg-gray-200 flex items-center h-${
             isAuthorized ? "50" : "72"
