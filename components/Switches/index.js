@@ -48,7 +48,8 @@ const Switches = () => {
   }, [error]);
 
   // authorization logic
-  const authorize = () => {
+  const authorize = (e) => {
+    e.preventDefault();
     if (!password) {
       setError("Enter the password");
       return;
@@ -93,40 +94,41 @@ const Switches = () => {
                 className="mb-7"
                 style={{ fontSize: "40" }}
               />
-
-              <FormControl
-                sx={{ m: 1, width: "25ch" }}
-                variant="outlined"
-                color="secondary"
-              >
-                <InputLabel htmlFor="outlined-adornment-password">
-                  Password
-                </InputLabel>
-                <OutlinedInput
-                  id="outlined-adornment-password"
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.currentTarget.value)}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={() => setShowPassword(!showPassword)}
-                        edge="end"
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  label="Password"
-                />
-              </FormControl>
-              <button
-                className="mt-5 mb-2 flex justify-center items-center text-gray-50 tracking-wide	 text-xl font-normal  rounded-lg p-2 px-6 py-2 w-full bg-purple-600 border-2 border-purple-600"
-                onClick={authorize}
-              >
-                Go
-              </button>
+              <form onSubmit={authorize}>
+                <FormControl
+                  sx={{ m: 1, width: "25ch" }}
+                  variant="outlined"
+                  color="secondary"
+                >
+                  <InputLabel htmlFor="outlined-adornment-password">
+                    Password
+                  </InputLabel>
+                  <OutlinedInput
+                    id="outlined-adornment-password"
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.currentTarget.value)}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={() => setShowPassword(!showPassword)}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                    label="Password"
+                  />
+                </FormControl>
+                <button
+                  className="mt-5 mb-2 flex justify-center items-center text-gray-50 tracking-wide	 text-xl font-normal  rounded-lg p-2 px-6 py-2 w-full bg-purple-600 border-2 border-purple-600"
+                  type="submit"
+                >
+                  Go
+                </button>
+              </form>
               {error ? (
                 <p className="text-red-600 text-sm font-medium">{error}</p>
               ) : null}
